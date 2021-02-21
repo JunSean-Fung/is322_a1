@@ -76,10 +76,29 @@ var foo = 'foo'; // Variables declared outside of any function are considered gl
         renderList(filteredResults);
     }
     // Function to filter out it specific price range
-    function selectPriceRange(showPriceRange) {
+    function selectPriceRange(chosenPriceRange) {
         // Purpose: This function will show only specific price range selected by user
-        var filteredPriceResults = mockDatabase.filter(function(result ){
+        /*var filteredPriceResults = mockDatabase.filter(function(result ){
             return ((result.price >= 5) && (result.price <= 10))
+        });*/
+        var filteredPriceResults = mockDatabase.filter(function (result){
+            switch (chosenPriceRange){
+                case "priceOpZero":
+                    return (result.price < 10);
+                    break;
+                case "priceOpOne":
+                    return (result.price < 20);
+                    break;
+                case "priceOpTwo":
+                    return (result.price < 30);
+                case "priceOpThree":
+                    return (result.price < 40);
+                case "priceOpFour":
+                    return (result.price < 50);
+                default:
+                    return true;
+                    console.log("default is chosen")
+            }
         });
         renderList(filteredPriceResults);
     }
@@ -104,8 +123,7 @@ var foo = 'foo'; // Variables declared outside of any function are considered gl
     //Listener for price range
     document.querySelector('#priceRange').addEventListener('change', function(event){
         // in this case value is a string that we need to convert to a boolean
-        var value = event.target.value === 'true';
-        selectPriceRange(value);
+        selectPriceRange(event.target.value);
     });
 
 })(); // Wrap entire file in self executing function.
