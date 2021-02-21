@@ -32,18 +32,30 @@
             </select>
         </div>
 
+        <div class="form-group">
+            <label for="priceRange">Price Range</label>
+            <select id="priceRange" name="priceRange">
+                <option>Select price Range</option>
+                <option value="priceOpZero"  >Under $10</option>
+                <option value="priceOpOne"   >$20 - $30</option>
+                <option value="priceOpTwo"   >$30 - $40</option>
+                <option value="priceOpThree" >$40 - $50</option>
+                <option value="priceOpFour"  >$50 - $60</option>
+            </select>
+        </div>
+
     </div>
 
     <table id="results-table" border="1">
         <thead>
-        <tr>
-            <th>&nbsp;</th>
-            <th>Name</th>
-            <th>Article ID</th>
-            <th>Price</th>
-            <th>Image</th>
-            <th>Published</th>
-        </tr>
+            <tr>
+                <th>&nbsp;</th>
+                <th>Name</th>
+                <th>Article ID</th>
+                <th>Price</th>
+                <th>Image</th>
+                <th>Published</th>
+            </tr>
         </thead>
 
         <!-- Results will be added through JavaScript -->
