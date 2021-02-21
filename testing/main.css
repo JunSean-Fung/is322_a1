@@ -1,0 +1,12 @@
+.filter-wrapper {
+    display: flex;
+    margin: 15px 0;
+}
+
+#results-table {
+    width: 100%;
+}
+
+#results-table td, #results-table th {
+    padding: 5px;
+}

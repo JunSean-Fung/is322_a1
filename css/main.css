@@ -1,0 +1,19 @@
+.filter-wrapper {
+    display: flex;
+    margin: 15px 0;
+}
+.productCard {
+    height: 225px;
+    width: 100%;
+    display: block;
+}
+.card-body {
+    padding:0.5rem;
+}
+#results-table {
+    width: 100%;
+}
+
+#results-table td, #results-table th {
+    padding: 5px;
+}
