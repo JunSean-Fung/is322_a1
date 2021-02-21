@@ -19,6 +19,7 @@
     ]
 
     function renderList (results) {
+        // Purpose: render the list
         var tableBody = document.querySelector('#results-table tbody');
 
         tableBody.innerHTML = ' '; //Clear the innerHTML
@@ -33,7 +34,16 @@
             tableBody.innerHTML += row;
         });
     }
-    renderList(databaseOne);
-})();
+    function sortItems (priceValue) {
+        /* Purpose:
+            Sort items based on:
+        *                   1) Price
+        *                   2) Title
+*       */
+
+    }
+    renderList(databaseOne); // Function call
+
+})(); // End of closure
 
 

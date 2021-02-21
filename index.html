@@ -7,6 +7,7 @@
 
     Note:
     1. #MARK means I need to come back and resolve it
+    2. Figure out ways to make it so that it call the css once
 -->
 
 <html lang="en">
@@ -39,7 +40,7 @@
 
     </head>
 
-    <body>
+    <body class="bg-primary">
         <nav class="navbar navbar-expand-sm navbar-dark bg-dark" aria-label="Third navbar example">
             <div class="container-fluid">
                 <!-- Title -->
@@ -54,27 +55,107 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarHome">
                     <ul class="navbar-nav me-auto mb-2 mb-sm-0">
+                        <!-- Home link-->
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="#">Home</a>
                         </li>
                         <!-- Product List link-->
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Product List</a>
+                            <a class="nav-link" href="productlist.html">Product List</a>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
-        <div class="container" id ="page-wrapper">
-            <div class="filter-wrapper">
-                <div class="container">
-                    <!-- Content here -->
-                    <b>Testing Size:</b><br>
-                    1366px Wide (Large Desktop)<br>
-                    1024px Wide (Small Desktop)<br>
-                    768px wide (Tablet)<br>
-                    411px wide (Phone)<br><br>
+
+        <!--Testing-->
+        <div class="album py-5 bg-primary">
+            <div class="container bg-light">
+                <div class="row pt-4">
+                    <div class="col-md-2">
+
+                    </div>
+                    <!--Left Col-->
+                    <div class="col-md-3">
+                        <div class="card mb-4">
+                            <img class="card-img-top productCard" src="media/img/doge_1.jpg">
+                            <div class="card-body bg-secondary">
+                                <p class="card-text text-light "><b>Attack on Doge</b></p>
+                            </div>
+                        </div>
+                        <div class="card mb-4">
+                            <img class="card-img-top productCard" src="media/img/doge_1.jpg">
+                            <div class="card-body bg-secondary">
+                                <p class="card-text text-light "><b>Attack on Doge</b></p>
+                            </div>
+                        </div>
+                        <div class="card mb-4">
+                            <img class="card-img-top productCard" src="media/img/doge_1.jpg">
+                            <div class="card-body bg-secondary">
+                                <p class="card-text text-light "><b>Attack on Doge</b></p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Mid Col-->
+                    <div class="col-md-3">
+                        <div class="card mb-4">
+                            <img class="card-img-top productCard" src="media/img/doge_1.jpg">
+                            <div class="card-body bg-secondary">
+                                <p class="card-text text-light "><b>Attack on Doge</b></p>
+                            </div>
+                        </div>
+                        <div class="card mb-4">
+                            <img class="card-img-top productCard" src="media/img/doge_1.jpg">
+                            <div class="card-body bg-secondary">
+                                <p class="card-text text-light "><b>Attack on Doge</b></p>
+                            </div>
+                        </div>
+                        <div class="card mb-4">
+                            <img class="card-img-top productCard" src="media/img/doge_1.jpg">
+                            <div class="card-body bg-secondary">
+                                <p class="card-text text-light "><b>Attack on Doge</b></p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Left Col-->
+                    <div class="col-md-3">
+                        <div class="card mb-4">
+                            <img class="card-img-top productCard" src="media/img/doge_1.jpg">
+                            <div class="card-body bg-secondary">
+                                <p class="card-text text-light "><b>Attack on Doge</b></p>
+                            </div>
+                        </div>
+                        <div class="card mb-4">
+                            <img class="card-img-top productCard" src="media/img/doge_1.jpg">
+                            <div class="card-body bg-secondary">
+                                <p class="card-text text-light "><b>Attack on Doge</b></p>
+                            </div>
+                        </div>
+                        <div class="card mb-4">
+                            <img class="card-img-top productCard" src="media/img/doge_1.jpg">
+                            <div class="card-body bg-secondary">
+                                <p class="card-text text-light "><b>Attack on Doge</b></p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+            </div>
+        </div>
+        <!--
+        <div class="container bg-light" id ="page-wrapper">
+            <div class="filter-wrapper">
+
+                <div class="card" style="width: 18rem;">
+                    <img class="card-img-top" src="media/img/doge_1.jpg" alt="Card image cap">
+                    <div class="card-body">
+                        <p class="card-text">
+                            Some quick example text to build on the
+                            card title and make up the bulk of the card's content.
+                        </p>
+                    </div>
+                </div>
+
+
                 <table id="results-table" border="1">
                     <thead>
                     <tr>
@@ -84,26 +165,32 @@
                         <th>Published</th>
                     </tr>
                     </thead>
-                    <!-- Results is added from Javascript to the tbody-->
+                    &lt;!&ndash; Results is added from Javascript to the tbody&ndash;&gt;
                     <tbody></tbody>
                 </table>
             </div>
-        </div>
+        </div> -->
         <script type="text/javascript" src="js/productList.js"></script>
     </body>
 
-    <footer class="container py-5">
+    <footer class="container py-5 bg-dark text-light">
         <div class="row">
             <div class="col-6 col-md text-center">
                 <h6>JunSean Fung<br>Assignment 1 </h6>
             </div>
             <div class="col-6 col-md text-center">
                 <h6>(555)-555-555</h6>
-
             </div>
             <div class="col-6 col-md text-center">
                 <h6> 323 Dr Martin Luther King Jr Blvd, Newark, NJ 07102</h6>
-
+            </div>
+            <div class="container">
+                <!-- Content here -->
+                <b>Testing Size:</b><br>
+                1366px Wide (Large Desktop)<br>
+                1024px Wide (Small Desktop)<br>
+                768px wide (Tablet)<br>
+                411px wide (Phone)<br><br>
             </div>
         </div>
     </footer>
