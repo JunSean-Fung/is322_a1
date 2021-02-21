@@ -26,8 +26,12 @@ var foo = 'foo'; // Variables declared outside of any function are considered gl
         tableBody.innerHTML = '';
         // Map each database record to a string containing the HTML for it's row
         var tableRows = results.map(function (result, index) {
-            return '<tr><td>' + index + '</td><td>' + result.name + '</td><td>' +
-                result._id + '</td><td>' + result.price + '</td><td><img src="'+result.image +'"></td><td>' + result.published + '</td></tr>';
+            return '<tr><td>' + index + '</td><td>'
+                    + result.name       + '</td><td>'
+                    + result._id        + '</td><td>'
+                    + result.price      + '</td><td><img src="'
+                    + result.image      +'"></td><td>'
+                    + result.published  + '</td></tr>';
         });
         // Set the contents of the table body to the new set of rendered HTML rows
         tableRows.forEach(function (row) {
@@ -36,7 +40,6 @@ var foo = 'foo'; // Variables declared outside of any function are considered gl
     }
 
     renderList(mockDatabase);
-
 
     /*Sorting Functions*/
     // Function to Order results list
@@ -72,8 +75,17 @@ var foo = 'foo'; // Variables declared outside of any function are considered gl
         });
         renderList(filteredResults);
     }
+    // Function to filter out it specific price range
+    function selectPriceRange(showPriceRange) {
+        // Purpose: This function will show only specific price range selected by user
+        var filteredPriceResults = mockDatabase.filter(function(result ){
+            return ((result.price >= 5) && (result.price <= 10))
+        });
+        renderList(filteredPriceResults);
+    }
 
-    /*Event Listeners*/
+    // Event Listeners
+    // Listener for orderBy
     // Change events trigger after the value of a form input changes
     document.querySelector('#orderBy').addEventListener('change', function(event){
         // Event is the JavaScript event that transpired, in our change a CHANGE event.
@@ -82,12 +94,18 @@ var foo = 'foo'; // Variables declared outside of any function are considered gl
         // Value has the name implies is the current value of the input element, if there is one
         orderBy(event.target.value);
     });
-
+    // Listener for Publish
     // Change events trigger after the value of a form input changes
     document.querySelector('#published').addEventListener('change', function(event){
         // in this case value is a string that we need to convert to a boolean
         var value = event.target.value === 'true';
         togglePublished(value);
+    });
+    //Listener for price range
+    document.querySelector('#priceRange').addEventListener('change', function(event){
+        // in this case value is a string that we need to convert to a boolean
+        var value = event.target.value === 'true';
+        selectPriceRange(value);
     });
 
 })(); // Wrap entire file in self executing function.
