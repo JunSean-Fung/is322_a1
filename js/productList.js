@@ -8,6 +8,11 @@
 
 // Closure
 (function () {
+
+
+
+    /*
+    // Prof Example
     var databaseOne = [
         {_id: '123', name: 'Article 1', published: true},
         {_id: '583', name: 'Article 2', published: true},
@@ -35,14 +40,14 @@
         });
     }
     function sortItems (priceValue) {
-        /* Purpose:
+        /!* Purpose:
             Sort items based on:
         *                   1) Price
         *                   2) Title
-*       */
+*       *!/
 
     }
-    renderList(databaseOne); // Function call
+    renderList(databaseOne); // Function call*/
 
 })(); // End of closure
 
