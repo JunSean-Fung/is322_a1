@@ -7,15 +7,15 @@ var foo = 'foo'; // Variables declared outside of any function are considered gl
 
     // An array of Objects, similar to database records we will eventually be dealing with.
     var mockDatabase = [
-        { _id: '123', name: 'Article 1', price:"10", image:".../z_media/img/doge_1.jpg", published: true },
-        { _id: '583', name: 'Article 2', price:"5", image:".../z_media/img/doge_1.jpg", published: true },
-        { _id: '954', name: 'Article 3', price:"25", image:".../z_media/img/doge_1.jpg", published: false },
-        { _id: '384', name: 'Article 4', price:"20", image:".../z_media/img/doge_1.jpg", published: false },
-        { _id: '183', name: 'Article 5', price:"90", image:".../z_media/img/doge_1.jpg", published: true },
-        { _id: '007', name: 'Article 6', price:"60", image:".../z_media/img/doge_1.jpg", published: false },
-        { _id: '304', name: 'Article 7', price:"33", image:".../z_media/img/doge_1.jpg", published: true },
-        { _id: '729', name: 'Article 8', price:"12", image:".../z_media/img/doge_1.jpg", published: false },
-        { _id: '734', name: 'Article 9', price:"38", image:".../z_media/img/doge_1.jpg", published: true },
+        { _id: '123', name: 'Article 1', price:"10", image:".../z_media/img/doge_1.jpg", category: "Shooter", published: true },
+        { _id: '583', name: 'Article 2', price:"5", image:".../z_media/img/doge_1.jpg", category: "Multiplayer", published: true },
+        { _id: '954', name: 'Article 3', price:"25", image:".../z_media/img/doge_1.jpg", category: "Shooter", published: false },
+        { _id: '384', name: 'Article 4', price:"20", image:".../z_media/img/doge_1.jpg", category: "RPG", published: false },
+        { _id: '183', name: 'Article 5', price:"90", image:".../z_media/img/doge_1.jpg", category: "Shooter", published: true },
+        { _id: '007', name: 'Article 6', price:"60", image:".../z_media/img/doge_1.jpg", category: "Meme", published: false },
+        { _id: '304', name: 'Article 7', price:"33", image:".../z_media/img/doge_1.jpg", category: "Shooter", published: true },
+        { _id: '729', name: 'Article 8', price:"12", image:".../z_media/img/doge_1.jpg", category: "Multiplayer", published: false },
+        { _id: '734', name: 'Article 9', price:"38", image:".../z_media/img/doge_1.jpg", category: "RPG", published: true },
     ];
 
     /*Show the list of items*/
@@ -31,6 +31,7 @@ var foo = 'foo'; // Variables declared outside of any function are considered gl
                     + result._id        + '</td><td>'
                     + result.price      + '</td><td><img src="'
                     + result.image      +'"></td><td>'
+                    + result.category   + '</td><td>'
                     + result.published  + '</td></tr>';
         });
         // Set the contents of the table body to the new set of rendered HTML rows
@@ -75,12 +76,9 @@ var foo = 'foo'; // Variables declared outside of any function are considered gl
         });
         renderList(filteredResults);
     }
-    // Function to filter out it specific price range
+    // Function to filter out to specific price range
     function selectPriceRange(chosenPriceRange) {
         // Purpose: This function will show only specific price range selected by user
-        /*var filteredPriceResults = mockDatabase.filter(function(result ){
-            return ((result.price >= 5) && (result.price <= 10))
-        });*/
         var filteredPriceResults = mockDatabase.filter(function (result){
             switch (chosenPriceRange){
                 case "priceOpZero":
@@ -103,6 +101,28 @@ var foo = 'foo'; // Variables declared outside of any function are considered gl
         renderList(filteredPriceResults);
     }
 
+    // Function to filter out to specific category
+    function selectCategory(chosenCategory) {
+        // Purpose : This will show only the specific category of the games selected by user
+        var filteredCategoryResults = mockDatabase.filter(function (result){
+            switch (chosenCategory){
+                case "categoryOpOne":
+                    return (result.category == "Shooter");
+                    break;
+                case "categoryOpTwo":
+                    return (result.category == "RPG");
+                    break;
+                case "categoryOpThree":
+                    return (result.category == "Multiplayer");
+                case "categoryOpFour":
+                    return (result.category == "Meme");
+                default:
+                    return true;
+                    console.log("default is chosen")
+            }
+        });
+        renderList(filteredCategoryResults);
+    }
     // Event Listeners
     // Listener for orderBy
     // Change events trigger after the value of a form input changes
@@ -125,6 +145,10 @@ var foo = 'foo'; // Variables declared outside of any function are considered gl
         // in this case value is a string that we need to convert to a boolean
         selectPriceRange(event.target.value);
     });
-
+    //Listener for Category
+    document.querySelector('#category').addEventListener('change', function(event){
+        // in this case value is a string that we need to convert to a boolean
+        selectCategory(event.target.value);
+    });
 })(); // Wrap entire file in self executing function.
       // Keeping all variables declared in this file inside a local scope.

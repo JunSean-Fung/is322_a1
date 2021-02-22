@@ -43,7 +43,17 @@
                 <option value="priceOpFour"     >Under $50</option>
             </select>
         </div>
-
+        <div class="form-group">
+            <!--Category-->
+            <label for="category" >Category</label>
+            <select id="category" name="category">
+                <option value="NA"   >Select Category</option>
+                <option value="categoryOpOne"   >Shooter</option>
+                <option value="categoryOpTwo"   >RPG</option>
+                <option value="categoryOpThree" >Multiplayer</option>
+                <option value="categoryOpFour"  >Meme</option>
+            </select>
+        </div>
     </div>
 
     <table id="results-table" border="1">
@@ -54,6 +64,7 @@
                 <th>Article ID</th>
                 <th>Price</th>
                 <th>Image</th>
+                <th>Category</th>
                 <th>Published</th>
             </tr>
         </thead>
