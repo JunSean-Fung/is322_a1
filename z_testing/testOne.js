@@ -7,15 +7,69 @@ var foo = 'foo'; // Variables declared outside of any function are considered gl
 
     // An array of Objects, similar to database records we will eventually be dealing with.
     var mockDatabase = [
-        { _id: '123', name: 'Horizon Zero Dawn', price:"10", image:".../z_media/img/doge_1.jpg", category: "Shooter", published: true },
-        { _id: '583', name: 'Attack on Doge', price:"5", image:".../z_media/img/doge_1.jpg", category: "Multiplayer", published: true },
-        { _id: '954', name: 'God of War', price:"25", image:".../z_media/img/doge_1.jpg", category: "Shooter", published: false },
-        { _id: '384', name: 'Sim City', price:"20", image:".../z_media/img/doge_1.jpg", category: "RPG", published: false },
-        { _id: '183', name: 'Resident Evil 6', price:"90", image:".../z_media/img/doge_1.jpg", category: "Shooter", published: true },
-        { _id: '007', name: 'Infamous: Second Son', price:"60", image:".../z_media/img/doge_1.jpg", category: "Meme", published: false },
-        { _id: '304', name: 'Resident Evil 5', price:"33", image:".../z_media/img/doge_1.jpg", category: "Shooter", published: true },
-        { _id: '729', name: 'Cities Skyline', price:"12", image:".../z_media/img/doge_1.jpg", category: "Multiplayer", published: false },
-        { _id: '734', name: 'CyberPunk', price:"38", image:".../z_media/img/doge_1.jpg", category: "RPG", published: true },
+        {   _id: '123',
+            name: 'Horizon Zero Dawn',
+            price:"10",
+            image:".../z_media/img/doge_1.jpg",
+            category: "Shooter",
+            multiplayer: false
+        },
+        {   _id: '583',
+            name: 'Attack on Doge',
+            price:"5",
+            image:".../z_media/img/doge_1.jpg",
+            category: "Multiplayer",
+            multiplayer: true
+        },
+        {   _id: '954',
+            name: 'God of War',
+            price:"25",
+            image:".../z_media/img/doge_1.jpg",
+            category: "Shooter",
+            multiplayer: false
+        },
+        {   _id: '384',
+            name: 'Sim City',
+            price:"20",
+            image:".../z_media/img/doge_1.jpg",
+            category: "RPG",
+            multiplayer: true
+        },
+        {   _id: '183',
+            name: 'Resident Evil 6',
+            price:"90",
+            image:".../z_media/img/doge_1.jpg",
+            category: "Shooter",
+            multiplayer: true
+        },
+        {   _id: '007',
+            name: 'Infamous: Second Son',
+            price:"60",
+            image:".../z_media/img/doge_1.jpg",
+            category: "Meme",
+            multiplayer: false
+        },
+        {   _id: '304',
+            name: 'Resident Evil 5',
+            price:"33",
+            image:".../z_media/img/doge_1.jpg",
+            category: "Shooter",
+            multiplayer: true
+        },
+        {   _id: '729',
+            name: 'Cities Skyline',
+            price:"12",
+            image:".../z_media/img/doge_1.jpg",
+            category: "Multiplayer",
+            multiplayer: false
+        },
+        {   _id: '734',
+            name: 'CyberPunk',
+            price:"38",
+            image:".../z_media/img/doge_1.jpg",
+            category: "RPG",
+            multiplayer: false
+        },
     ];
 
     /*Show the list of items*/
@@ -32,7 +86,7 @@ var foo = 'foo'; // Variables declared outside of any function are considered gl
                     + result.price      + '</td><td><img src="'
                     + result.image      +'"></td><td>'
                     + result.category   + '</td><td>'
-                    + result.published  + '</td></tr>';
+                    + result.multiplayer  + '</td></tr>';
         });
         // Set the contents of the table body to the new set of rendered HTML rows
         tableRows.forEach(function (row) {
@@ -65,14 +119,10 @@ var foo = 'foo'; // Variables declared outside of any function are considered gl
             });
         renderList(sortedResults);
     }
-    // Function to filter out unpublished results
-    function togglePublished(showPublished) {
-        // If showPublished is TRUE, only display published results
-        // Filter will only include objects that return TRUE from it's query
+    // Function to filter out if it is multiplayer
+    function toggleMultiplayer(showMultiplayer) {
         var filteredResults = mockDatabase.filter(function (result) {
-            // If showPublished is TRUE, always show.
-            // Otherwise only show if published is TRUE
-            return showPublished || result.published;
+            return showMultiplayer || result.multiplayer;
         });
         renderList(filteredResults);
     }
@@ -133,12 +183,12 @@ var foo = 'foo'; // Variables declared outside of any function are considered gl
         // Value has the name implies is the current value of the input element, if there is one
         orderBy(event.target.value);
     });
-    // Listener for Publish
+    // Listener for Multiplayer
     // Change events trigger after the value of a form input changes
-    document.querySelector('#published').addEventListener('change', function(event){
+    document.querySelector('#multiplayer').addEventListener('change', function(event){
         // in this case value is a string that we need to convert to a boolean
         var value = event.target.value === 'true';
-        togglePublished(value);
+        toggleMultiplayer(value);
     });
     //Listener for price range
     document.querySelector('#priceRange').addEventListener('change', function(event){
